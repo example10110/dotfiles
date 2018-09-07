@@ -84,7 +84,7 @@ function! s:VSetSearch()
   let @s = temp
 endfunction
 
-source <sfile>:h/.vim/vim-surround/plugin/surround.vim
+source <sfile>:h/dotfiles/.vim/vim-surround/plugin/surround.vim
 
 "disable arrowkeys
 noremap <Up> <Nop>
