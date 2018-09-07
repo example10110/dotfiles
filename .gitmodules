@@ -1,0 +1,6 @@
+[submodule ".vim/vim-surround"]
+	path = .vim/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/Conque-Shell"]
+	path = .vim/Conque-Shell
+	url = https://github.com/vim-scripts/Conque-Shell.git
