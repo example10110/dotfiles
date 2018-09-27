@@ -4,3 +4,6 @@
 [submodule ".vim/Conque-Shell"]
 	path = .vim/Conque-Shell
 	url = https://github.com/vim-scripts/Conque-Shell.git
+[submodule ".vim/bundle/neobundle.vim"]
+	path = .vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim
