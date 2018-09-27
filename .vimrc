@@ -99,40 +99,43 @@ noremap <C-Right> <C-w>>
 "change :make to compile the current c file buffer only
 set makeprg=gcc\ -o\ %<\ %
 
-"NeoBundle for win
 
-  " Note: Skip initialization for vim-tiny or vim-small.
-  if 0 | endif
- 
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
- 
-  " Required:
-  set runtimepath+=~/dotfiles/.vim/bundle/neobundle.vim/
- 
-  " Required:
-  call neobundle#begin(expand('~/dotfiles/.vim/bundle/'))
- 
-  " Let NeoBundle manage NeoBundle
-  " Required:
-  NeoBundleFetch 'Shougo/neobundle.vim'
- 
-  " My Bundles here:
-  " Refer to |:NeoBundle-examples|.
-  " Note: You don't set neobundle setting in .gvimrc!
- 
-  call neobundle#end()
- 
-  " Required:
-  filetype plugin indent on
- 
-  " If there are uninstalled bundles found on startup,
-  " this will conveniently prompt you to install them.
-  NeoBundleCheck
+""""""""""""NeoBundle""""""""""""
+
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=~/dotfiles/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('~/dotfiles/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-airline/vim-airline'
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+"""""""""""""""""""""""""""""""""
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
