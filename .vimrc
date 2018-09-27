@@ -86,18 +86,20 @@ endfunction
 
 source <sfile>:h/dotfiles/.vim/vim-surround/plugin/surround.vim
 
-"disable arrowkeys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+"use arrowkeys to handle active window
+noremap <Up> <C-w>k
+noremap <Down> <C-w>j
+noremap <Left> <C-w>h
+noremap <Right> <C-w>l
+noremap <C-Up> <C-w>+
+noremap <C-Down> <C-w>-
+noremap <C-Left> <C-w><
+noremap <C-Right> <C-w>>
 
 "change :make to compile the current c file buffer only
 set makeprg=gcc\ -o\ %<\ %
 
 "NeoBundle for win
-
-if has("win32")
 
   " Note: Skip initialization for vim-tiny or vim-small.
   if 0 | endif
@@ -129,7 +131,13 @@ if has("win32")
   " this will conveniently prompt you to install them.
   NeoBundleCheck
 
-endif
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'vim-airline/vim-airline'
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+map<C-N> :NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('syntax') && has('eval')
