@@ -66,6 +66,10 @@ set number
 
 set hidden
 
+set noswapfile
+
+set tabstop=4
+
 "this makes & command better
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
