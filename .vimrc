@@ -129,6 +129,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'flazz/vim-colorschemes'
 
 call neobundle#end()
 
