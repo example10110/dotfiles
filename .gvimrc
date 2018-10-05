@@ -8,5 +8,10 @@ set guioptions-=L
 set guioptions-=b
 
 colorscheme solarized
+set background=dark
 
-set guifont=Ricty_Diminished:h11:cSHIFTJIS:qDRAFT
+if has('win32')
+  set guifont=Ricty_Diminished:h11:cSHIFTJIS:qDRAFT
+else 
+  set guifont=Ricty\ Diminished\ 13
+endif
