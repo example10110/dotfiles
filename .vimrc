@@ -69,6 +69,7 @@ set hidden
 set noswapfile
 
 set tabstop=4
+set shiftwidth=4
 
 "this makes & command better
 nnoremap & :&&<CR>
@@ -100,8 +101,11 @@ noremap <C-Down> <C-w>-
 noremap <C-Left> <C-w><
 noremap <C-Right> <C-w>>
 
-"change :make to compile the current c file buffer only
-set makeprg=gcc\ -o\ %<\ %
+"change :make to compile the current c or cpp file buffer only
+augroup setcompiler
+  au Bufread,Bufnewfile *.c set makeprg=gcc\ -o\ %<\ %
+  au Bufread,Bufnewfile *.cpp set makeprg=g++\ -o\ %<\ %
+augroup END
 
 
 """"""""""""NeoBundle""""""""""""
@@ -130,6 +134,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'oplatek/conque-shell'
 
 call neobundle#end()
 
