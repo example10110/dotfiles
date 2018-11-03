@@ -107,6 +107,10 @@ augroup setcompiler
   au Bufread,Bufnewfile *.cpp set makeprg=g++\ -o\ %<\ %
 augroup END
 
+"use msys commands in vimshell on Windows
+if has('win32')
+  let $PATH = $PATH . ';C:\MinGW\msys\1.0\bin'
+endif
 
 """"""""""""NeoBundle""""""""""""
 
@@ -135,6 +139,17 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'oplatek/conque-shell'
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
+NeoBundle 'shougo/vimshell.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+			\ 'build' : {
+			\     'windows' : 'tools\\update-dll-mingw',
+			\     'cygwin' : 'make -f make_cygwin.mak',
+			\     'mac' : 'make',
+			\     'linux' : 'make',
+			\     'unix' : 'gmake',
+			\    },
+			\ }
 
 call neobundle#end()
 
