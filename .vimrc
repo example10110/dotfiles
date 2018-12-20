@@ -103,8 +103,9 @@ noremap <C-Right> <C-w>>
 
 "change :make to compile the current c or cpp file buffer only
 augroup setcompiler
-  au Bufread,Bufnewfile *.c set makeprg=gcc\ -o\ %<\ %
+  au Bufread,Bufnewfile *.c set makeprg=gcc\ -Wall\ -o\ %<\ %
   au Bufread,Bufnewfile *.cpp set makeprg=g++\ -o\ %<\ %
+  au Bufread,Bufnewfile *.tex set makeprg=ptex2pdf\ -l\ %
 augroup END
 
 "use msys commands in vimshell on Windows
