@@ -12,6 +12,6 @@ set background=dark
 
 if has('win32')
   set guifont=Ricty_Diminished:h11:cSHIFTJIS:qDRAFT
-else 
-  set guifont=Ricty\ Diminished\ 13
+elseif has("mac")
+  set guifont=Ricty\ Diminished:h15
 endif

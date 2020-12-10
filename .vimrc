@@ -1,29 +1,21 @@
-
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2017 Sep 20
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
-" Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
-  set backup		" keep a backup file (restore to previous version)
+  if has("mac")
+    set backup
+    set backupdir=~/vimbackup "need to create 'vimbackup' dir on mac
+  else
+    set nobackup    "I do not intend to set up 'backup' on any OS except for macos for now
+  endif
   if has('persistent_undo')
     set undofile	" keep an undo file (undo changes after closing)
+    if has("mac")
+      set undodir=~/vimbackup/undo  "also need to create 'undo' dir 
+    else
+      set noundofile
+    endif
   endif
 endif
 
@@ -50,8 +42,6 @@ else
 
 endif " has("autocmd")
 
-" Add optional packages.
-"
 " The matchit plugin makes the % command work better, but it is not backwards
 " compatible.
 " The ! means the package won't be loaded right away but when plugins are
